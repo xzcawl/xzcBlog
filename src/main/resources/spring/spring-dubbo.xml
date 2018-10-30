@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
+	
+	 <!-- 应用名 -->
+	<!--<dubbo:application name="${dubbo.application.name}"/>-->
+	
+	<!--  注册中心配置，用于配置连接注册中心的相关信息-->
+	<!--<dubbo:registry id="nppDubbo" address="${dubbo.registry.address}" protocol="zookeeper"/> -->
+	<!-- 协议配置，用于配置提供服务的协议信息，协议由提供方指定，消费方被动接受。-->
+	<!--<dubbo:protocol id="mydubbo" name="${dubbo.protocol.name}" host="${dubbo.protocol.host}" port="${dubbo.protocol.port}"/> -->
+	<!-- 消费方缺省配置，当ReferenceConfig某属性没有配置时，采用此缺省值，可选  -->
+	<!--<dubbo:consumer timeout="${dubbo.consumer.timeout}" retries="${dubbo.consumer.retries}" check="${dubbo.consumer.check}"/>-->
+
+
+</beans>
