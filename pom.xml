@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <profiles.dir>src/main/resources</profiles.dir>
         <datadict-version>1.0.0</datadict-version>
-        <spring-version>4.3.18.RELEASE</spring-version>
+        <spring-version>5.1.2.RELEASE</spring-version>
     </properties>
     <dependencyManagement>
 
