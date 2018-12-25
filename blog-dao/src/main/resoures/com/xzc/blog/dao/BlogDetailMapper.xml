@@ -1,0 +1,78 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzc.blog.dao.BlogDetailMapper">
+
+    <!-- 通过<resultMap>映射实体类属性名和表的字段名一一对应关系 property属性名 column表名 -->
+    <resultMap id="blogDetail" type="com.xzc.blog.domain.po.BlogDetail" >
+        <id property="id" jdbcType="INTEGER" column="id"/>
+        <result property="title" jdbcType="VARCHAR" column="title"/>
+        <result property="content" jdbcType="VARCHAR" column="content"/>
+        <result property="author" jdbcType="VARCHAR" column="author"/>
+        <result property="createTime" jdbcType="TIMESTAMP" column="createTime"/>
+        <result property="updateTime" jdbcType="TIMESTAMP" column="updateTime"/>
+        <result property="state" jdbcType="INTEGER" column="state"/>
+    </resultMap>
+
+    <resultMap id="BaseResultMap" type="com.xzc.blog.domain.po.BlogDetail">
+        <id property="id" jdbcType="INTEGER" column="id"/>
+        <result property="title" jdbcType="VARCHAR" column="title"/>
+        <result property="content" jdbcType="VARCHAR" column="content"/>
+        <result property="author" jdbcType="VARCHAR" column="author"/>
+        <result property="createTime" jdbcType="TIMESTAMP" column="createTime"/>
+        <result property="updateTime" jdbcType="TIMESTAMP" column="updateTime"/>
+        <result property="state" jdbcType="INTEGER" column="state"/>
+    </resultMap>
+
+    <select id="queryAllBlogDetail" resultMap="BaseResultMap">
+        SELECT * FROM blog_detail WHERE state=1
+    </select>
+
+    <select id="getQueryById" resultMap="blogDetail">
+        SELECT * FROM blog_detail WHERE id=#{id} AND state=1
+    </select>
+
+
+    <update id="updateBlogDetail">
+        UPDATE blog_detail
+        <set>
+            <if test="blogDetail.id!=null">
+                id =#{blogDetail.id},
+            </if>
+            <if test="blogDetail.title!=null">
+                title=#{blogDetail.title},
+            </if>
+            <if test="blogDetail.content!=null">
+                content=#{blogDetail.content},
+            </if>
+            <if test="blogDetail.author!=null">
+                author =#{blogDetail.author},
+            </if>
+            <if test="blogDetail.createTime!=null">
+                createTime =#{blogDetail.createTime},
+            </if>
+            <if test="blogDetail.updateTime!=null">
+                updateTime =#{blogDetail.updateTime},
+            </if>
+            <if test="blogDetail.state!=null">
+                state =#{blogDetail.state}
+            </if>
+        </set>
+        WHERE state=1
+    </update>
+
+    <update id="deleteById">
+        UPDATE blog_detail
+        <set>
+            state=0
+        </set>
+        WHERE id=#{id}
+    </update>
+
+    <insert id="addBlogDetail">
+        INSERT INTO blog_detail(id,title,content,author,createTime,updateTime,state)
+        VALUES (#{blogDetail.id},#{blogDetail.title},#{blogDetail.content},#{blogDetail.author},#{blogDetail.createTime},#{blogDetail.updateTime},#{blogDetail.state})
+    </insert>
+
+
+</mapper>
