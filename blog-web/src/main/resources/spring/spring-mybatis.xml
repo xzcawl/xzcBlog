@@ -13,7 +13,48 @@
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-	
+
+	<!-- datasource setting -->
+	<bean id="xzcDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${db.xzcBlog.driverClassName}" />
+		<property name="url" value="${db.xzcBlog.url}" />
+		<property name="username" value="${db.xzcBlog.username}" />
+		<property name="password" value="${db.xzcBlog.password}" />
+		<property name="maxActive" value="20" />
+		<property name="maxIdle" value="10" />
+		<property name="minIdle" value="5" />
+		<property name="initialSize" value="3" />
+		<property name="maxWait" value="1500" />
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+		<property name="minEvictableIdleTimeMillis" value="180000" />
+	</bean>
+
+	<!-- 配置SqlSessionFactory -->
+	<bean id="xzcSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="xzcDataSource"/>
+		<property name="typeAliasesPackage" value="com.xzc.blog.domain"/>
+		<!-- dao接口能不能和mapper.xml不在同一个文件夹需要配置 -->
+		<property name="mapperLocations" value="classpath:com/xzc/blog/dao/*.xml" />
+	</bean>
+
+	<!-- 通过扫描器的方式自动加载mapper -->
+	<bean id="xzcMapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="sqlSessionFactoryBeanName" value="xzcSqlSessionFactory"/>
+		<property name="basePackage" value="com.xzc.blog.dao"/>
+	</bean>
+
+	<!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
+	<bean id="xzcTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="xzcDataSource" />
+	</bean>
+	<tx:annotation-driven transaction-manager="xzcTransactionManager" proxy-target-class="true" />
+
+	<!--注入redisDao-->
+	<!--<bean id="redisDao" class="com.xzc.dao.cache.RedisDao">
+		&lt;!&ndash;构造方法注入值&ndash;&gt;
+		<constructor-arg index="0" value="localhost"/>
+		<constructor-arg index="1" value="6379"/>
+	</bean>-->
 
 	
 	 <!--<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">-->

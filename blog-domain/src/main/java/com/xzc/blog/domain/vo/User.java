@@ -1,6 +1,6 @@
-package com.xzc.blog.domain;
+package com.xzc.blog.domain.vo;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * Created by xzc on 2018/12/8 17:24
@@ -11,9 +11,9 @@ public class User {
 
     private String password;//密码
 
-    private Date createTime;//创建时间
+    private LocalDateTime createTime;//创建时间
 
-    private Date updateTime;//更新时间
+    private LocalDateTime updateTime;//更新时间
 
     private String description;//备注
 
@@ -33,19 +33,19 @@ public class User {
         this.password = password;
     }
 
-    public Date getCreateTime() {
+    public LocalDateTime getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(LocalDateTime createTime) {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
+    public LocalDateTime getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(LocalDateTime updateTime) {
         this.updateTime = updateTime;
     }
 
