@@ -32,6 +32,6 @@
 
 
     <!--对静态资源文件的访问-->
-   <!-- <mvc:resources mapping="/assets/**" location="/res/" />-->
+    <mvc:resources mapping="/res/**" location="/res/" />
 
 </beans>

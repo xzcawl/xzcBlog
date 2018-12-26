@@ -1,12 +1,9 @@
 package com.xzc.blog.service.impl;
 
-import com.xzc.blog.common.exceptions.AppRuntimeException;
 import com.xzc.blog.dao.BlogDetailMapper;
 import com.xzc.blog.domain.po.BlogDetail;
 import com.xzc.blog.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,7 +13,7 @@ import java.util.List;
  * @Date 2018/12/22 17:20
  * @Created by xzcawl
  */
-@Service
+
 public class BlogServiceImpl implements BlogService{
 
     @Autowired

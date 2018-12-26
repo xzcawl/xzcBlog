@@ -33,6 +33,8 @@
 	<bean id="xzcSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="xzcDataSource"/>
 		<property name="typeAliasesPackage" value="com.xzc.blog.domain"/>
+		<!--配置mybatis全局配置文件-->
+		<property name="configLocation" value="classpath:config/mybatis-config.xml"/>
 		<!-- dao接口能不能和mapper.xml不在同一个文件夹需要配置 -->
 		<property name="mapperLocations" value="classpath:com/xzc/blog/dao/*.xml" />
 	</bean>

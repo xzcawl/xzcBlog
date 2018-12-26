@@ -2,6 +2,7 @@ package com.xzc.blog.dao;
 
 import com.xzc.blog.domain.po.BlogDetail;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * @Date 2018/12/22 17:26
  * @Created by xzcawl
  */
+@Repository
 public interface BlogDetailMapper {
 
     /**

@@ -1,6 +1,7 @@
 package com.xzc.blog.service;
 
 import com.xzc.blog.domain.po.BlogDetail;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * @Date 2018/12/22 16:41
  * @Created by xzcawl
  */
+@Service
 public interface BlogService {
 
     /**

@@ -21,6 +21,8 @@
         <result property="author" jdbcType="VARCHAR" column="author"/>
         <result property="createTime" jdbcType="TIMESTAMP" column="createTime"/>
         <result property="updateTime" jdbcType="TIMESTAMP" column="updateTime"/>
+        <!--<result property="createTime" jdbcType="TIMESTAMP" column="createTime" typeHandler="org.apache.ibatis.type.LocalDateTimeTypeHandler"/>-->
+        <!--<result property="updateTime" jdbcType="TIMESTAMP" column="updateTime" typeHandler="org.apache.ibatis.type.LocalDateTimeTypeHandler"/>-->
         <result property="state" jdbcType="INTEGER" column="state"/>
     </resultMap>
 

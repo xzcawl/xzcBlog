@@ -11,6 +11,7 @@
 		http://www.springframework.org/schema/util/spring-util-3.0.xsd"
 	default-autowire="byName">
 
+	<mvc:default-servlet-handler/>
 	<aop:aspectj-autoproxy />
 	<!-- 启用spring mvc 注解 -->
 
