@@ -1,4 +1,4 @@
-package com.xzcBlog.common;
+package com.xzc.blog.common.util;
 
 import java.io.Serializable;
 

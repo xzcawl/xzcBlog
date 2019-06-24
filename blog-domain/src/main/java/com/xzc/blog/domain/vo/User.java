@@ -1,21 +1,45 @@
 package com.xzc.blog.domain.vo;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * Created by xzc on 2018/12/8 17:24
  */
-public class User {
+
+public class User implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    private Long id;//索引号
+
+    private String nickname;//昵称
 
     private String username;//用户名
 
     private String password;//密码
 
-    private LocalDateTime createTime;//创建时间
+    private Date createDate;//创建账号的时间
 
-    private LocalDateTime updateTime;//更新时间
+    private Date modifiedDate;//修改账号信息的时间
 
-    private String description;//备注
+    private String description;//描述
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
 
     public String getUsername() {
         return username;
@@ -33,20 +57,20 @@ public class User {
         this.password = password;
     }
 
-    public LocalDateTime getCreateTime() {
-        return createTime;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setCreateTime(LocalDateTime createTime) {
-        this.createTime = createTime;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
-    public LocalDateTime getUpdateTime() {
-        return updateTime;
+    public Date getModifiedDate() {
+        return modifiedDate;
     }
 
-    public void setUpdateTime(LocalDateTime updateTime) {
-        this.updateTime = updateTime;
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
     }
 
     public String getDescription() {
@@ -60,10 +84,12 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "username='" + username + '\'' +
+                "id=" + id +
+                ", nickname='" + nickname + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
+                ", createDate=" + createDate +
+                ", modifiedDate=" + modifiedDate +
                 ", description='" + description + '\'' +
                 '}';
     }
