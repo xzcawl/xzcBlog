@@ -19,11 +19,13 @@ public class User implements Serializable {
 
     private String password;//密码
 
-    private Date createDate;//创建账号的时间
+    private LocalDateTime createTime;//创建账号的时间
 
-    private Date modifiedDate;//修改账号信息的时间
+    private LocalDateTime updateTime;//修改账号信息的时间
 
     private String description;//描述
+
+    private int state;//状态
 
     public Long getId() {
         return id;
@@ -57,20 +59,20 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public LocalDateTime getCreateTime() {
+        return createTime;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setCreateTime(LocalDateTime createTime) {
+        this.createTime = createTime;
     }
 
-    public Date getModifiedDate() {
-        return modifiedDate;
+    public LocalDateTime getUpdateTime() {
+        return updateTime;
     }
 
-    public void setModifiedDate(Date modifiedDate) {
-        this.modifiedDate = modifiedDate;
+    public void setUpdateTime(LocalDateTime updateTime) {
+        this.updateTime = updateTime;
     }
 
     public String getDescription() {
@@ -81,16 +83,11 @@ public class User implements Serializable {
         this.description = description;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", nickname='" + nickname + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", createDate=" + createDate +
-                ", modifiedDate=" + modifiedDate +
-                ", description='" + description + '\'' +
-                '}';
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
     }
 }
